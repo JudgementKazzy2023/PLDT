@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLDT - Purchase Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://pldthome.com/images/default-source/navbar-update-072023/pldt-logo-size-optimized.png" alt="PLDT Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="confirmation">
+            <div class="container">
+                <h1>Purchase Confirmation</h1>
+                <p>Thank you for choosing PLDT. Please confirm your purchase below.</p>
+                <form id="confirmation-form">
+                    <div class="form-group">
+                        <label for="plan-name">Plan:</label>
+                        <input type="text" id="plan-name" name="plan-name" value="Fiber Plan 1299" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name">Full Name:</label>
+                        <input type="text" id="customer-name" name="customer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Installation Address:</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-number">Contact Number:</label>
+                        <input type="text" id="contact-number" name="contact-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <button type="submit" class="cta">Confirm Purchase</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <div class="modal" id="thank-you-modal">
+        <div class="modal-content">
+            <h2>Thank You!</h2>
+            <p>Your purchase has been confirmed. We will contact you soon to finalize the installation.</p>
+            <button class="close-modal">Close</button>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('confirmation-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const modal = document.getElementById('thank-you-modal');
+            modal.classList.add('show-modal');
+        });
+        const closeModal = document.querySelector('.close-modal');
